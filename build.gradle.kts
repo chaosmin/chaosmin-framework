@@ -10,21 +10,23 @@ plugins {
     jacoco
 }
 
-group = "tech.chaosmin"
-version = "0.0.1.SNAPSHOT"
+allprojects {
+    group = "tech.chaosmin"
+    version = "0.0.1.SNAPSHOT"
 
-repositories {
-    maven(url = "https://maven.aliyun.com/repository/central")
-    maven(url = "https://maven.aliyun.com/repository/gradle-plugin")
-    maven(url = "https://maven.aliyun.com/nexus/content/groups/public")
-    maven(url = "https://jitpack.io")
-    mavenCentral()
-}
+    repositories {
+        maven(url = "https://maven.aliyun.com/repository/central")
+        maven(url = "https://maven.aliyun.com/repository/gradle-plugin")
+        maven(url = "https://maven.aliyun.com/nexus/content/groups/public")
+        maven(url = "https://jitpack.io")
+        mavenCentral()
+    }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
-}
+    tasks.withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = "1.8"
+    }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
 }
