@@ -7,6 +7,8 @@ object Version {
     }
 
     object Deps {
+        const val assertJVersion = "3.20.2"
+
         const val caffeineVersion = "3.0.2"
         const val commonsCodecVersion = "1.14"
 
@@ -16,6 +18,7 @@ object Version {
 
         const val jacksonVersion = "2.11.2"
         const val janinoVersion = "3.1.0"
+        const val junitVersion = "5.8.0-M1"
         const val jwtVersion = "0.9.1"
 
         const val kotlinCoroutinesVersion = "1.3.8"

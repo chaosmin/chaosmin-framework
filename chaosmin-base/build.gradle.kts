@@ -35,4 +35,9 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:${Version.Deps.logbackVersion}")
     implementation("org.codehaus.janino:janino:${Version.Deps.janinoVersion}")
     implementation("org.codehaus.janino:commons-compiler:${Version.Deps.janinoVersion}")
+
+    // junit5
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${Version.Deps.junitVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:${Version.Deps.junitVersion}")
+    testImplementation("org.assertj:assertj-core:${Version.Deps.assertJVersion}")
 }
