@@ -1,8 +1,8 @@
 # IDEA
 .idea
 .gradle
-*/build/*
-*/out/*
+**/build/*
+**/out/*
 
 # Compiled class file
 *.class
