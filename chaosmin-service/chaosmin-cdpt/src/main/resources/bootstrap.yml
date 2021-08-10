@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: chaosmin-cdpt
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${CONFIG_SERVER_URL}
+      config:
+        file-extension: yml
+        server-addr: ${CONFIG_SERVER_URL}
+        namespace: ${DEPLOY_ENV}
+        ext-config[0].data-id: ${NACOS_COMMON:common.yml}
+        ext-config[0].group: ${NACOS_GROUP}
+        group: ${NACOS_GROUP}
+        enabled: ${NACOS_ENABLE:false}
+        refresh:
+          enabled: ${NACOS_REFRESH:false}

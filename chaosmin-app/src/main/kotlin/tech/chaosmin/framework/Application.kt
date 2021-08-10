@@ -3,12 +3,16 @@ package tech.chaosmin.framework
 import org.slf4j.LoggerFactory
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient
 import org.springframework.context.annotation.Import
+import springfox.documentation.oas.annotations.EnableOpenApi
 
 /**
  * @author Romani min
  * @since 2021/7/19 18:45
  */
+@EnableOpenApi
+@EnableDiscoveryClient
 @Import(cn.hutool.extra.spring.SpringUtil::class)
 @SpringBootApplication
 open class Application<T> {

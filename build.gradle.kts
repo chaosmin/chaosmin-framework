@@ -30,3 +30,10 @@ allprojects {
         useJUnitPlatform()
     }
 }
+
+configurations.all {
+    exclude("com.alibaba", "fastjson")
+    exclude("com.netflix.archaius", "archaius-core")
+    exclude("org.springframework.cloud", "spring-cloud-netflix-archaius")
+    exclude("org.springframework.cloud", "spring-cloud-starter-netflix-archaius")
+}

@@ -1,0 +1,15 @@
+<included>
+    <conversionRule conversionWord="msg"
+                    converterClass="tech.chaosmin.framework.log.sensitive.pattern.SensitiveDataConverter"/>
+    <if condition='",prd".indexOf(property("spring.profiles.active")) > 0'>
+        <then>
+            <property name="SensitiveDataAllowRun" scope="context" value="true"/>
+        </then>
+    </if>
+    <property name="SensitiveDataAllowRun" scope="context" value="true"/>
+    <include resource="logback-file-appender.xml"/>
+    <property name="SensitiveDataKeys" scope="context" value='[{"fieldName":"name","format":"NAME"}]'/>
+    <property name="SensitiveDataKeys1" scope="context" value='[]'/>
+    <property name="SensitiveDataKeys2" scope="context" value='[]'/>
+    <property name="SensitiveDataKeys3" scope="context" value='[]'/>
+</included>

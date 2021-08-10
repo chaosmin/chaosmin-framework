@@ -1,0 +1,28 @@
+<included>
+    <property name="logging.level" value="INFO"/>
+    <property name="TRACE_LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss:SSS} %5p ${PID:- } [trace=%mdc{TRACE_ID:-}] [%10.10t] %-42.42(%logger#%line) : %msg%n"/>
+
+    <appender class="ch.qos.logback.core.ConsoleAppender" name="STDOUT">
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>${TRACE_LOG_PATTERN}</pattern>
+        </encoder>
+        <target>System.out</target>
+    </appender>
+
+    <include resource="logback-sensitive.xml"/>
+
+    <logger name="org.apache">
+        <level value="INFO"/>
+    </logger>
+
+    <logger name="org.springframework">
+        <level value="INFO"/>
+    </logger>
+
+    <root>
+        <level value="${logging.level}"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</included>

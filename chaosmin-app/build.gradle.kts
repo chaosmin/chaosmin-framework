@@ -13,6 +13,11 @@ dependencies {
         exclude("org.springframework.boot", "spring-boot-starter-tomcat")
     }
     api("org.springframework.boot:spring-boot-starter-undertow:${Version.Deps.springBootVersion}")
-    api("org.springframework.boot:spring-boot-starter-actuator:${Version.Deps.springBootVersion}")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:${Version.Deps.springBootVersion}")
+    // nacos
+    api("org.springframework.cloud:spring-cloud-starter-alibaba-nacos-discovery:${Version.Deps.nacosVersion}")
+    api("org.springframework.cloud:spring-cloud-starter-alibaba-nacos-config:${Version.Deps.nacosVersion}")
+    // swagger
+    api("io.springfox:springfox-boot-starter:${Version.Deps.swaggerVersion}")
+    api("org.apache.httpcomponents:httpclient:4.5.13")
 }
