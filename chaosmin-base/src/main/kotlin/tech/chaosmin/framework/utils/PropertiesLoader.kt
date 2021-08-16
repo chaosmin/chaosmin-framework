@@ -1,6 +1,5 @@
 package tech.chaosmin.framework.utils
 
-import org.slf4j.LoggerFactory
 import java.io.IOException
 import java.util.*
 
@@ -10,7 +9,6 @@ import java.util.*
  * @since 2021/7/16 18:18
  */
 class PropertiesLoader(resourcesPaths: Array<String>) {
-    private val logger = LoggerFactory.getLogger(PropertiesLoader::class.java)
     private var properties: Properties
 
     init {
@@ -40,7 +38,7 @@ class PropertiesLoader(resourcesPaths: Array<String>) {
             try {
                 PropertiesLoader::class.java.classLoader.getResourceAsStream(location).use { props.load(it) }
             } catch (ex: IOException) {
-                logger.info("Could not load properties from path:" + location + ", " + ex.message)
+                ex.printStackTrace()
             }
         }
         return props

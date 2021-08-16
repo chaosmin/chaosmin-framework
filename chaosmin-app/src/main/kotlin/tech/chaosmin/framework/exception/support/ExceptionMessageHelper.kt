@@ -1,7 +1,7 @@
-package tech.chaosmin.framework.utils
+package tech.chaosmin.framework.exception.support
 
 import tech.chaosmin.framework.exception.FrameworkException
-import tech.chaosmin.framework.exception.support.ExceptionMsgPath
+import tech.chaosmin.framework.utils.PropertiesLoader
 import java.text.MessageFormat
 import java.util.*
 

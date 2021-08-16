@@ -1,6 +1,6 @@
 package tech.chaosmin.framework.exception
 
-import tech.chaosmin.framework.utils.ExceptionMessageHelper
+import tech.chaosmin.framework.exception.support.ExceptionMessageHelper
 import java.io.PrintStream
 import java.io.PrintWriter
 
