@@ -2,8 +2,15 @@
 .idea
 .gradle
 
+# VS code
+.vscode
+
+# Claude code
+.claude
+
 # Compiled class file
 *.class
+build
 
 # Log file
 *.log
