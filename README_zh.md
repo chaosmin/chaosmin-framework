@@ -16,7 +16,7 @@
 
 | 模块 | 说明 |
 |------|------|
-| `chaos-parent` | BOM 版本管理，统一引入 `spring-boot-dependencies:4.0.0` |
+| `chaos-starter-parent` | BOM 版本管理，统一引入 `spring-boot-dependencies:4.0.0` |
 | `chaos-starter-foundation` | 基础包：DTO、工具类、异常等通用类 |
 | `chaos-starter-domain` | 业务层：领域模型与领域服务 |
 | `chaos-starter-integration` | 外部请求层：HTTP 客户端与第三方集成 |

@@ -15,13 +15,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ./gradlew test
 
 # Run tests for a specific module
-./gradlew :chaos-starter:chaos-starter-domain:test
+./gradlew :starter:chaos-starter-domain:test
 
 # Run a single test class
-./gradlew :chaos-starter:chaos-starter-domain:test --tests "fully.qualified.ClassName"
+./gradlew :starter:chaos-starter-domain:test --tests "fully.qualified.ClassName"
 
 # Run a single test method
-./gradlew :chaos-starter:chaos-starter-domain:test --tests "fully.qualified.ClassName.methodName"
+./gradlew :starter:chaos-starter-domain:test --tests "fully.qualified.ClassName.methodName"
 
 # Clean build
 ./gradlew clean build
@@ -34,16 +34,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Module Architecture
 
-Multi-module Kotlin framework following DDD layered architecture. All modules live under `chaos-starter/`; `chaos-parent` is a standalone Java Platform BOM.
+Follows Spring Boot's repository conventions: all modules live under a single top-level category directory (`starter/`), mirroring how Spring Boot organises `spring-boot-project/` with its starters and platform BOM.
 
-### Modules and Responsibilities
+```
+starter/
+├── chaos-starter-parent/              ← BOM (java-platform, re-exports spring-boot-dependencies)
+├── chaos-starter-foundation/
+├── chaos-starter-domain/
+├── chaos-starter-integration/
+├── chaos-starter-facade/
+├── chaos-starter-facade-impl/
+├── chaos-starter-infrastructure/
+└── chaos-starter-app/
+```
+
+### Module Responsibilities
 
 | Module | Role |
 |--------|------|
+| `chaos-starter-parent` | Java Platform BOM; re-exports `spring-boot-dependencies:4.0.0` |
 | `chaos-starter-foundation` | Base utilities, DTOs, exceptions, common types — depended on by every other module |
 | `chaos-starter-domain` | Domain model and business logic; no framework coupling |
 | `chaos-starter-integration` | Outbound HTTP clients (WebFlux `WebClient`); third-party adapters |
-| `chaos-starter-facade` | Inbound API contracts: interfaces and request/response types only, no implementation |
+| `chaos-starter-facade` | Inbound API contracts: interfaces and request/response types only |
 | `chaos-starter-facade-impl` | Application services; implements facade, orchestrates domain |
 | `chaos-starter-infrastructure` | JPA repository implementations and persistence entities |
 | `chaos-starter-app` | Spring Boot entry point; wires all modules; produces executable `bootJar` |
@@ -62,8 +75,8 @@ foundation ◄── (all modules)
 | File | Purpose |
 |------|---------|
 | `build.gradle.kts` (root) | Declares all plugin versions (`apply false`); configures Kotlin compiler options (`-Xjsr305=strict`, JVM 21) and JUnit platform globally via `subprojects {}` |
-| `chaos-parent/build.gradle.kts` | `java-platform` BOM; re-exports `spring-boot-dependencies:4.0.0` |
-| `chaos-starter/build.gradle.kts` | Injects `platform(project(":chaos-parent"))`, `kotlin-reflect`, and `spring-boot-starter-test` into all starter submodules via `subprojects {}` |
+| `starter/build.gradle.kts` | Injects `platform(project(":starter:chaos-starter-parent"))`, `kotlin-reflect`, and `spring-boot-starter-test` into all non-BOM starter modules via `subprojects {}` |
+| `starter/chaos-starter-parent/build.gradle.kts` | `java-platform` BOM; re-exports `spring-boot-dependencies:4.0.0` |
 | Each module `build.gradle.kts` | Declares `kotlin("jvm")` + `kotlin("plugin.spring")` plugins and module-specific dependencies |
 
 ### Key Conventions

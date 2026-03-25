@@ -16,7 +16,7 @@ A Spring Boot 4 based framework skeleton with layered DDD architecture, providin
 
 | Module | Description |
 |--------|-------------|
-| `chaos-parent` | BOM — re-exports `spring-boot-dependencies:4.0.0` for unified version management |
+| `chaos-starter-parent` | BOM — re-exports `spring-boot-dependencies:4.0.0` for unified version management |
 | `chaos-starter-foundation` | Base package: DTOs, utilities, exceptions, common types |
 | `chaos-starter-domain` | Business layer: domain model and domain services |
 | `chaos-starter-integration` | Outbound clients: HTTP integrations and third-party adapters |
